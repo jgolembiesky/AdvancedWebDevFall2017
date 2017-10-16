@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .message= msg
+  .message #{msg}
+  span.message(id="msg") #{msg}
