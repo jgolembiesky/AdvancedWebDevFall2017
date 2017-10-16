@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <div id="json_filler"></div>
+         <script type="text/javascript">
+                        
+            let myRequest = 'http://localhost:3000/todo';
+            var output = '';
+            output += '<table>';
+            output += '<tr>';
+            output += '<th>User ID</th>';
+            output += '<th>ID</th>';
+            output += '<th>Title</th>';
+            output += '<th>Completed</th>';
+            output += '</tr>';
+            fetch(myRequest)
+            .then(function(response) {              
+                  return response.json()               
+            })
+            .then(function(json) { 
+                
+               for(let i in json){
+                   output += '<tr>';
+                   output +=    '<td>' + json[i].userId + '</td>';
+                   output +=    '<td>' + json[i].id + '</td>';
+                   output +=    '<td>' + json[i].title + '</td>';
+                   output +=    '<td>' + json[i].completed + '</td>';
+                   output += '</tr>';
+               }
+                output += "</table>";
+                document.querySelector("#json_filler").innerHTML = output;
+            })
+           
+           
+          
+        </script>
+       
+    </body>
+</html>
