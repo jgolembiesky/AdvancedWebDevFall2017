@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h2= title
+    form(action="/form", method="post")
+        input(type="text", name="name")
+        input(type="text", name="email")
+        input(type="text-area", name="comments")
+        input(type="submit")
